@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task list</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include ('navbar') %>
+
+    <div class="container">
+        <h1>To Do List</h1>
+        <form action="/multi-delete" method="post" class="center-btn">
+            <button class="delete-item" style="margin-bottom: 10px;">Delete Selected Task</button>
+        <ul class="task-list">
+            <% for(let task=0;task<result.length; task++) { %>
+                <li class="task-item">
+                    <div class="task-title">
+                        <%= result[task].Title %>
+                    </div>
+                    <div class="task-description">
+                        <%= result[task].Description %>
+                    </div>
+                    <div class="task-actions">
+    <input type="checkbox" name="selectedTask" value="<%= result[task]._id %>">
+    <a href="/delete/<%= result[task]._id %>" class="action-btn delete-btn">Delete</a>
+    <a href="/update/<%= result[task]._id %>" class="action-btn edit-btn">Edit</a>
+</div>
+                </li>
+            <% } %>
+
+        </ul>
+        </form>
+    </div>
+
+    <script>
+  // Confirm before multi-delete form submits
+  document.querySelector('form[action="/multi-delete"]').addEventListener('submit', function(e) {
+    if (!confirm("Are you sure you want to delete the selected tasks?")) {
+      e.preventDefault(); // cancel form submission
+    }
+  });
+
+  // Confirm before single delete links
+  document.querySelectorAll('a[href^="/delete/"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (!confirm("Are you sure you want to delete this task?")) {
+        e.preventDefault(); // cancel navigation
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

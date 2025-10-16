@@ -1,0 +1,245 @@
+/* Base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+}
+
+nav {
+  background-color: #3a3f51;
+  padding: 15px 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+nav ul li a {
+  color: #d8dae0;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #5a6178;
+  color: #fff;
+}
+
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1.5px solid #e1e1e6;
+}
+
+.container {
+  max-width: 680px;
+  margin: 35px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Form */
+.todo-form {
+  background-color: #fff;
+  padding: 35px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #ccc;
+  font-size: 16px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-weight: 400;
+  transition: border-color 0.25s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #7a8ca3;
+  box-shadow: 0 0 8px rgba(122, 140, 163, 0.4);
+}
+
+textarea.input {
+  min-height: 110px;
+  resize: vertical;
+  margin-top: 15px;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #556270;
+  border: none;
+  border-radius: 8px;
+  color: #f0f0f0;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 22px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(85, 98, 112, 0.4);
+}
+
+.btn:hover {
+  background-color: #738393;
+  box-shadow: 0 6px 14px rgba(115, 131, 147, 0.6);
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 42px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.task-item {
+  background-color: #fff;
+  margin-bottom: 18px;
+  padding: 22px 28px;
+  border-left: 6px solid #74828f;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 0.3s ease;
+}
+
+.task-item:hover {
+  box-shadow: 0 6px 20px rgba(116, 130, 143, 0.25);
+}
+
+.task-title {
+  font-weight: 700;
+  font-size: 21px;
+  color: #414852;
+}
+
+.task-description {
+  font-size: 15px;
+  color: #606973;
+  line-height: 1.4;
+}
+
+/* Actions */
+.task-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 14px;
+}
+
+.delete-item, .edit-item {
+  display: inline-block; /* This fixes the full-width issue */
+  background-color: #a66a6a;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  margin-right: 10px; /* Adds space between Delete and Edit */
+}
+
+.delete-item:hover {
+  background-color: #8b5757;
+}
+
+.edit-item {
+  background-color: #607d8b;
+}
+
+.edit-item:hover {
+  background-color: #4a6871;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  margin-left: 0;
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #74828f;
+}
+
+/* Multi-delete Button */
+form > button.delete-item {
+  width: auto;
+  padding: 12px 22px;
+  background-color: #8c6c44;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(140, 108, 68, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form > button.delete-item:hover {
+  background-color: #6f5839;
+  box-shadow: 0 6px 14px rgba(111, 88, 57, 0.6);
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Delete Button Style */
+.delete-btn {
+    background-color: #8c6c44;
+}
+
+.delete-btn:hover {
+    background-color: #4d371a;
+}
+
+/* Edit Button Style */
+.edit-btn {
+    background-color: #8c6c44;
+}
+
+.edit-btn:hover {
+    background-color: #4d371a;
+}
